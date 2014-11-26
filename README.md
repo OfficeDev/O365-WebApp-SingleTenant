@@ -1,5 +1,5 @@
-Office 365 APIs MultiTenant Web Application
-============================================
+Office 365 APIs Single Tenant Web Application
+==============================================
 
 This sample shows how to build a single tenant MVC web application that uses Azure AD for sign-in using the OpenID Connect protocol, and then calls a Office 365 API under the signed-in user's identity using tokens obtained via OAuth 2.0. This sample uses the OpenID Connect ASP.Net OWIN middleware and ADAL .Net.
 
