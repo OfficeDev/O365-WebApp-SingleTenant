@@ -37,8 +37,7 @@ namespace O365_WebApp_SingleTenant.Controllers
             var signInUserId = ClaimsPrincipal.Current.FindFirst(ClaimTypes.NameIdentifier).Value;
             var userObjectId = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/objectidentifier").Value;
 
-            // !!! NOTE: DO NOT USE NaiveSessionCache IN PRODUCTION. A MORE PERSISTENT CACHE SUCH AS A DATABASE IS RECOMMENDED FOR PRODUCTION USE !!!!
-            AuthenticationContext authContext = new AuthenticationContext(SettingsHelper.Authority, new NaiveSessionCache(signInUserId));
+            AuthenticationContext authContext = new AuthenticationContext(SettingsHelper.Authority, new ADALTokenCache(signInUserId));
             
             try
             {
@@ -50,9 +49,7 @@ namespace O365_WebApp_SingleTenant.Controllers
                         return authResult.AccessToken;
                     });
 
-                var dcr = await discClient.DiscoverCapabilityAsync("Contacts");
-
-                var dcrAll = await discClient.DiscoverCapabilitiesAsync();
+                var dcr = await discClient.DiscoverCapabilityAsync("Contacts");                
 
                 OutlookServicesClient exClient = new OutlookServicesClient(dcr.ServiceEndpointUri,
                     async () =>
