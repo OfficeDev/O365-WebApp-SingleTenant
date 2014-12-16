@@ -3,6 +3,11 @@ Office 365 APIs Single Tenant Web Application
 
 This sample shows how to build a single tenant MVC web application that uses Azure AD for sign-in using the OpenID Connect protocol, and then calls a Office 365 API under the signed-in user's identity using tokens obtained via OAuth 2.0. This sample uses the OpenID Connect ASP.Net OWIN middleware and ADAL .Net.
 
+***Update 12/16/2014***
+The sample now uses a persistent ADAL token cache that uses a database for its token cache. You can see the token cache implementation in the following files:
+- [Models/ADALTokenCache.cs](https://github.com/OfficeDev/O365-WebApp-SingleTenant/blob/master/O365-WebApp-SingleTenant/Models/ADALTokenCache.cs)
+- [Models/ApplicationDbContext.cs](https://github.com/OfficeDev/O365-WebApp-SingleTenant/blob/master/O365-WebApp-SingleTenant/Models/ApplicationDbContext.cs)
+
 ## How to Run this Sample
 To run this sample, you need:
 
@@ -80,7 +85,10 @@ Now you are ready for a test run. Hit F5 to test the app.
 ### Quick Look at the SSO Authentication Code
 The authentication startup class, **App_Start/Startup.Auth.cs** in the project contains the startup logic for Azure AD authentication.
 
-The project implements a simple ADAL token cache **NaiveSessionCache** that uses the ASP.Net session to store and retrieve tokens for the current user. **As it name suggests, it is very naive and is not recommended for production use**.A more persistent cache such as database is recommended for production use.
+The sample now uses a persistent ADAL token cache that uses a database for its token cache. You can see the token cache implementation in the following files:
+- [Models/ADALTokenCache.cs](https://github.com/OfficeDev/O365-WebApp-SingleTenant/blob/master/O365-WebApp-SingleTenant/Models/ADALTokenCache.cs)
+- [Models/ApplicationDbContext.cs](https://github.com/OfficeDev/O365-WebApp-SingleTenant/blob/master/O365-WebApp-SingleTenant/Models/ApplicationDbContext.cs)
+
 
 ### Sign In and Sign Out Controls
 The sign in and sign out controls are already added to the views. You can find them under **Views\Shared** folder.
