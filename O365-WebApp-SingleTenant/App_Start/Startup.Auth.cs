@@ -69,7 +69,7 @@ namespace O365_WebApp_SingleTenant
                         },
                         AuthenticationFailed = (context) =>
                         {
-                            // Suppress the exception if you want to see the error
+                            // Suppress the exception if you don't want to see the error
                             context.HandleResponse();
                             return Task.FromResult(0);
                         }
