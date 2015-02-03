@@ -55,10 +55,13 @@ In your web.config, update the **TenantId** value to your **Office 365 tenant Id
 
 To get the tenant Id of your Office 365 tenant:
 - Log in to your Azure Portal and select your Office 365 domain directory.
-**NOTE:** If you are unable to login to (Azure Portal)[https://manage.windowsazure.com] using your Office 365 credentials, You can also access your Office 365’s Azure Portal directly from your (Office 365 Admin Center)[http://chakkaradeep.com/index.php/access-azure-active-directory-portal-from-your-office-365-subscription/].
+
+**NOTE:** If you are unable to login to [Azure Portal](https://manage.windowsazure.com) using your Office 365 credentials, You can also access your Office 365’s Azure Portal directly from your [Office 365 Admin Center](http://chakkaradeep.com/index.php/access-azure-active-directory-portal-from-your-office-365-subscription/)
+
 - Now, in the browser URL, locate the GUID. This will be your Office 365 tenant Id.
-- Copy and paste it in the web.config where it says “paste-your-tenant-guid-here“ :
+- Copy and paste it in the web.config where it says “paste-your-tenant-guid-here“ : 
 <add key=“ida:TenantId“ value=“paste-your-tenant-guid-here“ />
+
 **Note:** If you are deploying to a production tenant, you will need to ask your tenant admin for the tenant identifier.
 
 ### Step 5: Build and Debug your web application
