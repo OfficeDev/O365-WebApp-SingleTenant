@@ -22,7 +22,7 @@ namespace O365_WebApp_SingleTenant.Utils
     public class SettingsHelper
     {
         private static string _clientId = ConfigurationManager.AppSettings["ida:ClientId"] ?? ConfigurationManager.AppSettings["ida:ClientID"];
-        private static string _appKey = ConfigurationManager.AppSettings["ida:AppKey"] ?? ConfigurationManager.AppSettings["ida:ClientSecret"];
+        private static string _appKey = ConfigurationManager.AppSettings["ida:AppKey"] ?? ConfigurationManager.AppSettings["ida:Password"];
         
         private static string _tenantId = ConfigurationManager.AppSettings["ida:TenantId"];
         private static string _authorizationUri = "https://login.windows.net";
