@@ -26,7 +26,6 @@ From your Git Shell or command line:
 3. Ignore any build errors for now as we will configure the project in the next steps.
 
 ## Step 3: Configure the sample
-Once downloaded, open the sample in Visual Studio.
 
 ### Register Azure AD application to consume Office 365 APIs
 Office 365 applications use Azure Active Directory (Azure AD) to authenticate and authorize users and applications respectively. All users, application registrations, permissions are stored in Azure AD.
@@ -39,32 +38,16 @@ Using the Office 365 API Tool for Visual Studio you can configure your web appli
 4. After you're signed in, you will see a list of all the services.
 5. Initially, no permissions will be selected, as the app is not registered to consume any services yet.
 6. Select **Users and Groups** and then click **Permissions**
-7. In the **Users and Groups Permissions** dialog, select **Enable sign-on and read users profiles'** and click **Apply**
+7. In the **Users and Groups Permissions** dialog, select **Sign you in and read your profile** and click **Apply**
 8. Select **Contacts** and then click **Permissions**
-9. In the **Contacts Permissions** dialog, select **Read users' contacts** and click **Apply**
+9. In the **Contacts Permissions** dialog, select **Read your contacts** and click **Apply**
 10. Click **Ok**
 
 After clicking OK, Office 365 client libraries (in the form of NuGet packages) for connecting to Office 365 APIs will be added to your project.
 
 In this process, Office 365 API tool registered an Azure AD Application in the Office 365 tenant that you signed in the wizard and added the Azure AD application details to web.config.
 
-### Step 4: Update web.config with your Tenant ID
-There is one extra configuration required if you are building a single tenant application.
-
-In your web.config, update the **TenantId** value to your **Office 365 tenant Id** where the application is deployed.
-
-To get the tenant Id of your Office 365 tenant:
-- Log in to your Azure Portal and select your Office 365 domain directory.
-
-**NOTE:** If you are unable to login to [Azure Portal](https://manage.windowsazure.com) using your Office 365 credentials, You can also access your Office 365’s Azure Portal directly from your [Office 365 Admin Center](http://chakkaradeep.com/index.php/access-azure-active-directory-portal-from-your-office-365-subscription/)
-
-- Now, in the browser URL, locate the GUID. This will be your Office 365 tenant Id.
-- Copy and paste it in the web.config where it says “paste-your-tenant-guid-here“ : 
-<add key=“ida:TenantId“ value=“paste-your-tenant-guid-here“ />
-
-**Note:** If you are deploying to a production tenant, you will need to ask your tenant admin for the tenant identifier.
-
-### Step 5: Build and Debug your web application
+### Step 4: Build and Debug your web application
 Now you are ready for a test run. Hit F5 to test the app.
 
 ### Quick Look at the Authentication Code
